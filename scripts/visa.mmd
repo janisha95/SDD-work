@@ -1,0 +1,12 @@
+flowchart LR
+    V0["Visa inbound data elements (INPUT CONTRACT = spec 0)"]
+    V1["Replay into Payment Hub"]
+    V2["Validate"]
+    V3["Reconciliation"]
+    V4["Fraud checks"]
+    V5["AML"]
+    V6["Sanction screening (SLMS)"]
+    V7["FIU reporting"]
+    V8["Indirect checks"]
+    V0 --> V1 --> V2 --> V3 --> V4 --> V5 --> V6 --> V7 --> V8
+    style V0 fill:#1e3a8a,stroke:#93c5fd,color:#ffffff

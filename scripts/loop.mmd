@@ -1,0 +1,20 @@
+flowchart TB
+    subgraph CTX["CONTEXT LAYER (plain local files - no cloud, no RAG)"]
+        direction LR
+        D1["Index / map docs"]
+        D2["Spec docs (the WHAT + acceptance tests)"]
+        D3["Memory / findings (decisions, state)"]
+        D4["YOU - own the system, supply context"]
+    end
+    S1["1. SPEC - write the spec first"]
+    S2["2. BUILD - AI writes code to the spec"]
+    S3["3. QA / STLC - test against the spec"]
+    S4{"4. VERIFY - meets spec?"}
+    S5["5. PERSIST - save decisions back to docs"]
+    CTX --> S1 --> S2 --> S3 --> S4
+    S4 -->|no| S1
+    S4 -->|yes| S5
+    S5 --> CTX
+    style CTX fill:#0b2540,stroke:#3b82f6,color:#dbeafe
+    style D4 fill:#1e3a8a,stroke:#93c5fd,color:#ffffff
+    style S4 fill:#3f2d0b,stroke:#f59e0b,color:#fde68a

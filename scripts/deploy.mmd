@@ -1,0 +1,18 @@
+flowchart TB
+    subgraph OUT["Public internet - not needed, not used"]
+        PUB["Public Claude / Codex API"]
+    end
+    subgraph BANK["CIBC internal security boundary - data never leaves"]
+        direction TB
+        PLAT["CIBCAI - the internal AI platform (ALREADY EXISTS)<br/>Claude + GPT, sanctioned, inside the boundary"]
+        SDD["Spec-driven workflow<br/>specs + proof rulebook"]
+        INFRA["Rides on existing enterprise infra:<br/>versioning, CI/CD, containers, vendor dev"]
+        PLAT --- SDD --- INFRA
+    end
+    PUB -. blocked + unnecessary .-> BANK
+    ASK["No new model to buy. No data leaves.<br/>The ask = apply SDD on CIBCAI, the platform you already pay for.<br/>MVP can run on real internal tooling, not just a laptop."]
+    style BANK fill:#0b2540,stroke:#3b82f6,color:#dbeafe
+    style PLAT fill:#0f2e1a,stroke:#34d399,color:#d1fae5
+    style SDD fill:#1e3a8a,stroke:#93c5fd,color:#ffffff
+    style PUB fill:#2a2a2a,stroke:#777,color:#bbb
+    style ASK fill:#0f2e1a,stroke:#34d399,color:#d1fae5

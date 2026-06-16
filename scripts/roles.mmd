@@ -1,0 +1,22 @@
+flowchart LR
+    IDEA["Business idea / need"]
+    subgraph PIPE["ONE SPEC flows through every role - single source of truth"]
+        direction LR
+        BA["BA<br/>requirements"]
+        BSA["BSA<br/>system spec"]
+        DES["Design"]
+        DEV["Dev / Vendors<br/>build to spec"]
+        QA["QA<br/>prove vs acceptance"]
+        IA["IA / Deploy"]
+    end
+    IDEA --> BA --> BSA --> DES --> DEV --> QA --> IA
+    AI["AI assistant<br/>drafts specs, code, test scaffolds"]
+    AI -. speeds up .-> BA
+    AI -. speeds up .-> BSA
+    AI -. speeds up .-> DES
+    AI -. speeds up .-> DEV
+    AI -. speeds up .-> QA
+    GATE["Every role KEEPS its human gate:<br/>review, approve, prove.<br/>AI accelerates - humans decide. No role removed."]
+    style PIPE fill:#0b2540,stroke:#3b82f6,color:#dbeafe
+    style AI fill:#1e3a8a,stroke:#93c5fd,color:#ffffff
+    style GATE fill:#0f2e1a,stroke:#34d399,color:#d1fae5
